@@ -13,23 +13,37 @@
         },
         "kernel",
         {
-          "type": "memory",
-          "format": "{used} | {total}"
-        },
-        "break",
-        {
             "type": "packages",
             "format": "{43} <nixpkgs>"
-        },
-        {
-            "type": "disk",
-            "format": "{1} | {2}"
         },
         "break",
         "WM",
         "Shell",
         "terminal",
-        "Locale",
-        "break"
+        {
+            "type": "font",
+            "format": "{2}"
+        },
+        "break",
+        "colors"
     ]
 }
+
+/* System Hardware info
+        {
+            "type": "cpu",
+            "format": "{1}"
+        },
+        {
+            "type": "gpu",
+            "format": "{2}"
+        },
+        {
+          "type": "memory",
+          "format": "{used} | {2}"
+        },
+        {
+            "type": "disk",
+            "format": "{1} | {2}"
+        }
+*/
