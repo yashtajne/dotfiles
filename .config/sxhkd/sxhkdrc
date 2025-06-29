@@ -1,0 +1,62 @@
+
+
+# Reload 
+super + r
+  pkill -USR1 -x sxhkd && bspc wm -r
+
+
+# Launch terminal
+super + Return
+  ~/.me/bin/st/st-source/st # & sleep 0.1 && bspc node -t floating
+
+
+# Close window 
+super + BackSpace
+  bspc node -c
+
+
+# Application launcher
+super + a
+  rofi -show drun -theme ~/.config/rofi/config.rasi
+
+
+# Switch workspace
+super + {1-9}
+  bspc desktop -f ^{1-9}
+
+
+# Put focused window to different workspace
+super + shift + {1-9}
+  bspc node -d ^{1-9}
+  
+  
+# Toggle floating
+super + shift + space
+  bspc node -t $(bspc query -n focused -T | jq -r '.client.state' | grep floating >/dev/null && echo tiled || echo floating)
+
+# Toggle Fullscreen
+super + f
+  bspc node -t ~fullscreen
+ 
+super + l
+    sh -c 'pgrep -f lemonbar >/dev/null && pkill -x lemonbar || (nohup ~/.config/lemonbar/loop.sh >/dev/null 2>&1 &)'
+
+# Brightness Controls
+XF86MonBrightnessUp
+    brightnessctl set +2%
+
+XF86MonBrightnessDown
+    brightnessctl set 2%-
+
+
+# Volume control
+XF86AudioRaiseVolume
+    pactl set-sink-volume @DEFAULT_SINK@ +5%
+
+XF86AudioLowerVolume
+    pactl set-sink-volume @DEFAULT_SINK@ -5%
+
+XF86AudioMute
+    pactl set-sink-mute @DEFAULT_SINK@ toggle
+	
+	

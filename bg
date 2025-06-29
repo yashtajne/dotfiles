@@ -1,0 +1,34 @@
+
+#!/usr/bin/env bash
+
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
+WALLPAPER_CONFIG="$HOME/.wallpaperc"
+
+# Check directory exists
+if [[ ! -d "$WALLPAPER_DIR" ]]; then
+  echo "Directory $WALLPAPER_DIR does not exist."
+  exit 1
+fi
+
+# Get list of files (regular files only)
+mapfile -t files < <(find "$WALLPAPER_DIR" -type f)
+
+if [[ ${#files[@]} -eq 0 ]]; then
+  echo "No wallpapers found in $WALLPAPER_DIR."
+  exit 1
+fi
+
+echo "Select a wallpaper:"
+
+# Use bash select menu
+select filepath in "${files[@]}"; do
+  if [[ -n "$filepath" ]]; then
+    # Save the selected wallpaper path to .wallpaperc
+    echo "$filepath" > "$WALLPAPER_CONFIG"
+    echo "Selected wallpaper saved to $WALLPAPER_CONFIG"
+    break
+  else
+    echo "Invalid selection. Try again."
+  fi
+done
+
