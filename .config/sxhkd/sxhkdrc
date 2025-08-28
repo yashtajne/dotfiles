@@ -5,12 +5,17 @@ super + r
   pkill -USR1 -x sxhkd && bspc wm -r
 
 
+# Polybar
+super + p
+  pgrep -x polybar && killall -q polybar || polybar mybar &
+
+
 # Launch terminal
 super + Return
-  ~/.me/bin/st/st-source/st # & sleep 0.1 && bspc node -t floating
+  /usr/local/bin/st
 
 
-# Close window 
+# Close window
 super + BackSpace
   bspc node -c
 
@@ -34,29 +39,37 @@ super + shift + {1-9}
 super + shift + space
   bspc node -t $(bspc query -n focused -T | jq -r '.client.state' | grep floating >/dev/null && echo tiled || echo floating)
 
+
 # Toggle Fullscreen
 super + f
   bspc node -t ~fullscreen
- 
+
+
 super + l
     sh -c 'pgrep -f lemonbar >/dev/null && pkill -x lemonbar || (nohup ~/.config/lemonbar/loop.sh >/dev/null 2>&1 &)'
 
+
 # Brightness Controls
 XF86MonBrightnessUp
-    brightnessctl set +2%
+  brightnessctl set +2%
+
 
 XF86MonBrightnessDown
-    brightnessctl set 2%-
+  brightnessctl set 2%-
 
 
-# Volume control
+# Raise Volume
 XF86AudioRaiseVolume
-    pactl set-sink-volume @DEFAULT_SINK@ +5%
+  amixer -q sset Master 5%+
 
+# Lower Volume
 XF86AudioLowerVolume
-    pactl set-sink-volume @DEFAULT_SINK@ -5%
+  amixer -q sset Master 5%-
 
+# Toggle Mute
 XF86AudioMute
-    pactl set-sink-mute @DEFAULT_SINK@ toggle
-	
-	
+  amixer -q sset Master toggle
+
+
+super + s
+  maim -i root ~/Pictures/Screenshots/$(date +"%Y%m%d-%H%M%S").png

@@ -1,34 +1,69 @@
+#!/usr/bin/env node
 
-#!/usr/bin/env bash
+const fs = require('fs');
+const path = require('path');
+const os = require('os');
+const inquirer = require('inquirer');
+const { exec } = require('child_process');
 
-WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
-WALLPAPER_CONFIG="$HOME/.wallpaperc"
+const wallpapersDir = path.join(process.env.HOME, 'Pictures', 'Wallpapers');
 
-# Check directory exists
-if [[ ! -d "$WALLPAPER_DIR" ]]; then
-  echo "Directory $WALLPAPER_DIR does not exist."
-  exit 1
-fi
+function getWallpapers() {
+  try {
+    const files = fs.readdirSync(wallpapersDir);
+    const wallpapers = files.filter(file => {
+      return /\.(jpg|jpeg|png|bmp|gif)$/i.test(file);
+    }).map(file => path.join(wallpapersDir, file));
+    return wallpapers;
+  } catch (err) {
+    console.error('Error reading directory:', err);
+    return [];
+  }
+}
 
-# Get list of files (regular files only)
-mapfile -t files < <(find "$WALLPAPER_DIR" -type f)
+async function selectWallpaper() {
+  const wallpapers = getWallpapers();
 
-if [[ ${#files[@]} -eq 0 ]]; then
-  echo "No wallpapers found in $WALLPAPER_DIR."
-  exit 1
-fi
+  if (wallpapers.length === 0) {
+    console.log('No wallpapers found in the directory.');
+    return;
+  }
 
-echo "Select a wallpaper:"
+  const prompt = inquirer.createPromptModule();
 
-# Use bash select menu
-select filepath in "${files[@]}"; do
-  if [[ -n "$filepath" ]]; then
-    # Save the selected wallpaper path to .wallpaperc
-    echo "$filepath" > "$WALLPAPER_CONFIG"
-    echo "Selected wallpaper saved to $WALLPAPER_CONFIG"
-    break
-  else
-    echo "Invalid selection. Try again."
-  fi
-done
+  const { selectedWallpaper } = await prompt([
+    {
+      type: 'list',
+      name: 'selectedWallpaper',
+      message: 'Select a wallpaper:',
+      choices: wallpapers.map(wallpaper => ({
+        name: path.basename(wallpaper), // Display file name only
+        value: wallpaper // Store the full path as the value
+      })),
+      loop: false, // Prevent looping through choices once selected
+      searchText: 'Type to search...' // User can search in the list
+    }
+  ]);
+
+  const filePath = path.join(os.homedir(), '.wallpaperc');
+
+  fs.writeFile(filePath, selectedWallpaper, (err) => {
+    if (err) {
+      console.error('Error writing to file', err);
+    } else {
+      exec('pkill -USR1 -x sxhkd && bspc wm -r', (err, stdout, stderr) => {
+        if (err) {
+          console.error(`Error executing command: ${err.message}`);
+          return;
+        }
+        if (stderr) {
+          console.error(`stderr: ${stderr}`);
+          return;
+        }
+      });
+    }
+  });
+}
+
+selectWallpaper();
 

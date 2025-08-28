@@ -19,45 +19,20 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
   spec = {
     -- Add plugins
-	-- { import = "plugins" },
+    { import = "plugins" },
     {
-      "catppuccin/nvim",
-      name = "catppuccin", 
-      priority = 1000,
+      'echasnovski/mini.nvim', 
+      version = '*',
       config = function()
-        vim.cmd("colorscheme  catppuccin-mocha")
+        require('mini.statusline').setup()
       end
-    },
-    {
-      'nvim-treesitter/nvim-treesitter',
-      build = ':TSUpdate',
-      config = function()
-        require'nvim-treesitter.configs'.setup {
-          ensure_installed = { 
-			"lua", 
-			"javascript", 
-			"typescript", 
-			"python", 
-			"c", 
-			"cpp"
-		  },
-          highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-          },
-          indent = {
-            enable = true,
-          },
-        }
-      end,
     },
     {
       'nvim-telescope/telescope.nvim', tag = '0.1.8',
       dependencies = { 'nvim-lua/plenary.nvim' }
     },
   },
-  
-  -- Install settings (this was placed outside setup, now moved inside)
+
   install = { colorscheme = { "habamax" } },
 
   -- Automatically check for plugin updates
