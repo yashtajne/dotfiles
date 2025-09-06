@@ -16,7 +16,6 @@
             "type": "packages",
             "format": "{43} <nixpkgs>"
         },
-        "break",
         "WM",
         "Shell",
         "terminal",
