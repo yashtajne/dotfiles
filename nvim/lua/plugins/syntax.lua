@@ -18,6 +18,7 @@ return {
           "html",
           "css",
           "svelte",
+          "rust",
         },
         highlight = {
           enable = true,
