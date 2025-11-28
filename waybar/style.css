@@ -1,0 +1,96 @@
+
+* {
+  font-family: JetBrainsMono Nerd Font, monospace;
+  font-size: 11pt;
+  border: none;
+  color: #000000;
+}
+
+window#waybar {
+  background: transparent;
+  border-radius: 16px;
+  padding: 2px 12px;
+  box-shadow: 0 6px 18px rgba(124, 77, 255, 0.25);
+}
+
+#window {
+  background: #f2ecbc;
+  border: 3px solid #DD88CF;
+  padding: 0 14px;
+  margin-right: 10px;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+#window.empty {
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+
+#workspaces {
+  background: #f2ecbc;
+  border-radius: 999px;
+  border: 3px solid #DD88CF;
+  padding: 2px 3px;
+}
+
+#workspaces button {
+  padding: 0 12px;
+  margin: 0 3px;
+  border-radius: 999px;
+  background: transparent;
+  color: #cfc7ff;
+}
+
+#workspaces button.focused {
+  color: #0b0016;
+  border: 2px solid #80CBC4;
+  font-weight: 800;
+  font-size: 16pt;
+}
+
+#workspaces button.active {
+  background: #ffafc1;
+}
+
+#workspaces button.urgent {
+  color: #0b0016;
+}
+
+#workspaces button.empty {
+  opacity: 0.45;
+}
+
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#clock {
+  padding: 0 12px;
+  margin-left: 6px;
+  border-radius: 999px;
+  color: #120018;
+  font-weight: 600;
+  box-shadow: 0 0 8px rgba(255, 140, 200, 0.4);
+  background: #f2ecbc;
+  border: 3px solid #DD88CF;
+}
+
+#battery.warning {
+  color: #1a001a;
+}
+
+#battery.critical {
+  color: #ffffff;
+}
+
+#workspaces button:hover {
+  background: rgba(180, 130, 255, 0.35);
+}
+
+#clock {
+  letter-spacing: 0.05em;
+  font-weight: 800;
+}

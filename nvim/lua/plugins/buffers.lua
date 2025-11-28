@@ -31,7 +31,7 @@ return {
           [vim.diagnostic.severity.INFO]  = { enabled = true, icon = " " },
           [vim.diagnostic.severity.HINT]  = { enabled = true, icon = " " },
         },
-        separator = { left = "", right = "" },
+        separator = { left = "", right = "" },
         separator_at_end = true,
       },
       insert_at_end = false,

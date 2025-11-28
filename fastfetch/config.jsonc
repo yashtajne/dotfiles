@@ -14,7 +14,7 @@
         "kernel",
         {
             "type": "packages",
-            "format": "{43} <nixpkgs>"
+            "format": "{pacman} Pacman | {flatpak-system} Flatpak"
         },
         "WM",
         "Shell",
@@ -23,12 +23,6 @@
             "type": "font",
             "format": "{2}"
         },
-        "break",
-        "colors"
-    ]
-}
-
-/* System Hardware info
         {
             "type": "cpu",
             "format": "{1}"
@@ -44,5 +38,12 @@
         {
             "type": "disk",
             "format": "{1} | {2}"
-        }
+        },
+        "break",
+        "colors"
+    ]
+}
+
+/* System Hardware info
+
 */
