@@ -1,4 +1,6 @@
 
+vim.opt.shortmess:append("I")
+
 vim.opt.termguicolors = true
 
 vim.opt.expandtab   = true

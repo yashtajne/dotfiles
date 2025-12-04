@@ -14,7 +14,7 @@ window#waybar {
 }
 
 #window {
-  background: #f2ecbc;
+  background: #faf4ed;
   border: 3px solid #DD88CF;
   padding: 0 14px;
   margin-right: 10px;
@@ -30,7 +30,7 @@ window#waybar {
 
 
 #workspaces {
-  background: #f2ecbc;
+  background: #faf4ed;
   border-radius: 999px;
   border: 3px solid #DD88CF;
   padding: 2px 3px;
@@ -52,7 +52,7 @@ window#waybar {
 }
 
 #workspaces button.active {
-  background: #ffafc1;
+  background: #fdcfcc;
 }
 
 #workspaces button.urgent {
@@ -74,7 +74,7 @@ window#waybar {
   color: #120018;
   font-weight: 600;
   box-shadow: 0 0 8px rgba(255, 140, 200, 0.4);
-  background: #f2ecbc;
+  background: #faf4ed;
   border: 3px solid #DD88CF;
 }
 
