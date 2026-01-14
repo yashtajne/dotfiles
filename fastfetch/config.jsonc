@@ -24,6 +24,22 @@
             "type": "font",
             "format": "{2}"
         },
+        {
+            "type": "cpu",
+            "format": "{1}"
+        },
+        {
+            "type": "gpu",
+            "format": "{2}"
+        },
+        {
+          "type": "memory",
+          "format": "{used} | {2}"
+        },
+        {
+            "type": "disk",
+            "format": "{1} | {2}"
+        },
         "break",
         "colors"
     ]
