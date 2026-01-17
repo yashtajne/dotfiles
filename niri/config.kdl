@@ -121,9 +121,9 @@ layout {
     background-color "#00000000"
 
     preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
+        proportion 0.48
+        proportion 0.67
+        proportion 0.86
 
         // fixed 1920
     }
@@ -134,7 +134,7 @@ layout {
     // default-column-width {}
 
     focus-ring {
-        // off
+        off
 
         width 5
         active-color "#ffffff00"
@@ -148,7 +148,7 @@ layout {
 
         width 5
         active-color "#ffffff6f"
-        inactive-color "00000000"
+        inactive-color "101010f0"
 
         urgent-color "#d44336"
     }
@@ -183,10 +183,11 @@ animations {
 // https://yalter.github.io/niri/Configuration:-Window-Rules
 window-rule {
 	geometry-corner-radius 12
+	clip-to-geometry true
 }
 
 window-rule {
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    match app-id=r#"librewolf$"# title="^Picture-in-Picture$"
     open-floating true
 }
 
@@ -203,7 +204,7 @@ window-rule {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "kgx"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
     Mod+P hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 

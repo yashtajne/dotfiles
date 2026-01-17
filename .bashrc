@@ -1,8 +1,8 @@
 # =========================
 # Aliases
 # =========================
-alias l="ls -la"
-alias ll="ls -l"
+alias l="ls -l"
+alias ll="ls -la"
 
 
 # =========================
@@ -19,7 +19,7 @@ __set_prompt() {
     local NIX_SHELL_NAME="${IN_NIX_SHELL^}"
     PS1="${USER_C}\u${NIX_C}@${HOST_C}\h${NIX_C}:${PATH_C}\w${RESET}${HOST_C}  $NIX_SHELL_NAME\n${PATH_C}  $(basename "$SHELL") ${NIX_C}→${RESET} "
   else
-    PS1="${USER_C}\u${NIX_C}@${HOST_C}\h${NIX_C}:${PATH_C}\w${RESET}${HOST_C}\n${PATH_C}  $(basename "$SHELL") ${NIX_C}→${RESET} "
+    PS1=" ${USER_C}\u${NIX_C}@${HOST_C}\h${NIX_C}:${PATH_C}\w${RESET}${HOST_C}\n${PATH_C}  $(basename "$SHELL") ${NIX_C}→${RESET} "
   fi
 }
 

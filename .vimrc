@@ -21,9 +21,9 @@ set noexpandtab
 set shiftwidth=4
 set nowrap
 
-set list
+" set list
 " set listchars=tab:│·,trail:·
-set listchars=tab:»·,trail:·,space:·
+" set listchars=tab:»·,trail:·,space:·
 
 " Faster cursor movement
 nnoremap <silent> <C-j> 10j
@@ -40,6 +40,9 @@ nnoremap <silent> L :vertical resize +5<CR>
 " Save file
 nnoremap <silent> <C-s> :w<CR>
 vnoremap <silent> <C-s> :w<CR>
+
+" Edit file
+nnoremap <C-e> :e 
 
 augroup DimListChars
   autocmd!
