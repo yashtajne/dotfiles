@@ -52,4 +52,3 @@ augroup END
 colorscheme GruberDarker
 " colorscheme gruvbox
 set background=dark
-

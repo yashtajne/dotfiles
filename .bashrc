@@ -1,3 +1,10 @@
+export PATH=$PATH:$HOME/.local/bin       # ~/.local/bin
+export PATH=$PATH:$HOME/opt/node/bin     # nodejs
+export PATH=$PATH:$HOME/opt/flutter/bin  # flutter
+export PATH=$PATH:$HOME/opt/vscode/bin   # vscode
+export PATH=$PATH:$HOME/opt/zig          # vscode
+
+
 # =========================
 # Aliases
 # =========================
