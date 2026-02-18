@@ -2,7 +2,8 @@ export PATH=$PATH:$HOME/.local/bin       # ~/.local/bin
 export PATH=$PATH:$HOME/opt/node/bin     # nodejs
 export PATH=$PATH:$HOME/opt/flutter/bin  # flutter
 export PATH=$PATH:$HOME/opt/vscode/bin   # vscode
-export PATH=$PATH:$HOME/opt/zig          # vscode
+export PATH=$PATH:$HOME/opt/zig-0.15     # zig
+export PATH=$PATH:$HOME/opt/go/bin       # go
 
 
 # =========================
@@ -10,6 +11,7 @@ export PATH=$PATH:$HOME/opt/zig          # vscode
 # =========================
 alias l="ls -l"
 alias ll="ls -la"
+alias cls="clear"
 
 
 # =========================

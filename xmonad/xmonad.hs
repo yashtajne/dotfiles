@@ -2,6 +2,7 @@ import XMonad
 import XMonad.Util.EZConfig (additionalKeysP)
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
+import XMonad.Actions.CycleWS
 
 toggleFullscreen :: X ()
 toggleFullscreen =
@@ -14,13 +15,17 @@ toggleFullscreen =
         else windows (W.float w fullRect)
 
 myKeys =
-	[ ("M-<Return>", spawn "gnome-terminal")
-	, ("M-p", spawn "rofi -show drun")
-	, ("M-<Backspace>", kill)
-	, ("M-f", toggleFullscreen)
-	, ("M-=", sendMessage Expand)
-	, ("M--", sendMessage Shrink)
-	]
+  [ ("M-<Return>", spawn "gnome-terminal")
+  , ("M-p", spawn "rofi -show drun")
+  , ("M-<Backspace>", kill)
+  , ("M-f", toggleFullscreen)
+  , ("M-=", sendMessage Expand)
+  , ("M--", sendMessage Shrink)
+
+  -- workspace navigation
+  , ("M-h", prevWS)
+  , ("M-l", nextWS)
+  ]
 
 main = xmonad $ def
   { modMask = mod4Mask
