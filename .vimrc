@@ -8,27 +8,11 @@ set laststatus=2
 call plug#begin('~/.vim/plugged')
 
 " Themes
+Plug 'git@github.com:NLKNguyen/papercolor-theme.git'
 Plug 'git@github.com:drsooch/gruber-darker-vim'
 Plug 'git@github.com:morhetz/gruvbox'
-Plug 'git@github.com:devsjc/vim-jb'
-Plug 'git@github.com:vim-scripts/eclipse.vim'
-Plug 'git@github.com:NLKNguyen/papercolor-theme.git'
-Plug 'git@github.com:vim-scripts/darkeclipse.vim'
-Plug 'git@github.com:sjl/badwolf'
-
-" For LSP
-Plug 'git@github.com:neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
-
-" =========================
-" Coc LSP and Intellisence
-" =========================
-let g:coc_diagnostic_enable_highlight = 1
-let g:coc_diagnostic_enable_underline = 1
-set updatetime=300
-set signcolumn=yes
-nnoremap <silent> <C-c> :CocList<CR>
 
 
 " =========================
@@ -67,16 +51,6 @@ set encoding=utf-8
 
 colorscheme PaperColor
 set background=dark
-" colorscheme gruvbox
-" colorscheme darkeclipse
-
-" let g:jb_enable_unicode=0
-" colorscheme jb
-
-let g:badwolf_darkgutter = 1
-let g:badwolf_html_link_underline = 0
-let g:badwolf_css_props_highlight = 1
-" colorscheme badwolf
 
 
 " =========================
